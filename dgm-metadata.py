@@ -103,7 +103,7 @@ for i in all_datasets['result']:
             res_desc.append(resource['description'])
             res_url.append(resource['url'])
     except:
-        print ("Mamó el dataset \n\t"+ dataset_url)
+        print ("\nFetch failed: "+ dataset_url)
 pbar.close()
 
 ########################################
