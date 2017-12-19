@@ -2,7 +2,7 @@
 
 #### -----------------------------------------
 #### Script for mining the contents of ckan
-####
+#### python 3 version
 #### -----------------------------------------
 
 ##------------------------------
@@ -12,7 +12,7 @@ import requests
 import sys
 import json, urllib, string
 import pandas as pd
-
+from tqdm import tqdm
 ##------------------------------
 ## Download list of datasets
 ##------------------------------
@@ -65,12 +65,14 @@ def checkURL(url):
 # Add Features
 ########################################
 #k = 0
+pbar = tqdm (total=len(all_datasets['result']))
 for i in all_datasets['result']:
    # print(k)
     #k = k + 1
     ## Obtain datasets.
+    pbar.update()
     dataset_url = base + "package_show?id=" + str(i) # base + "package_search?q=" + str(i)
-    print (i)
+    #print (i)
     #print(dataset_url)
 
     try:
@@ -102,7 +104,7 @@ for i in all_datasets['result']:
             res_url.append(resource['url'])
     except:
         print ("Mamó el dataset \n\t"+ dataset_url)
-
+pbar.close()
 
 ########################################
 ## Create data table
