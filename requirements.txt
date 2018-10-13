@@ -112,7 +112,6 @@ pyasn1==0.2.3
 pyasn1-modules==0.0.9
 pycosat==0.6.2
 pycparser==2.17
-pycrypto==2.6.1
 pycurl==7.43.0
 pyflakes==1.5.0
 Pygments==2.2.0
